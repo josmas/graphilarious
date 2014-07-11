@@ -14,4 +14,19 @@ angular.module('graphilariousApp')
       'AngularJS',
       'Karma'
     ];
-  });
+
+  var d3Sample = function (){
+
+    d3.select('#d3-container')
+      .append('svg')
+      .attr('width', 50)
+      .attr('height', 50)
+      .append('circle')
+      .attr('cx', 25)
+      .attr('cy', 25)
+      .attr('r', 25)
+      .style('fill', 'purple');
+  };
+
+  d3Sample();
+});
