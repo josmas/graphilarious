@@ -15,30 +15,32 @@ angular.module('graphilariousApp')
       'Karma'
     ];
 
+  //TODO (jos) all the d3 code here has to be relocated somewhere else.
   var d3Sample = function (){
+
+    var data = [ {'x': 50, 'y': 50, name: 'Node1', color: 'purple'},
+                 {'x': 250, 'y': 250, name: 'Node2', color: 'red'}
+               ];
 
     var svgContainer = d3.select('#d3-container')
       .append('svg')
       .attr('width', 500)
       .attr('height', 500);
 
-    var node1 = svgContainer.append('circle')
+    var circle = svgContainer.selectAll('circle')
+      .data(data);
+    circle.exit().remove();
+    circle.enter().append('circle')
       .style('stroke', 'gray')
-      .style('fill', 'purple')
-      .attr('r', 40)
-      .attr('cx', 50)
-      .attr('cy', 50);
+      .style('fill', function(d){ return d.color; })
+      .attr('r', 40);
+    circle
+      .attr('cx', function(d) { return d.x; })
+      .attr('cy', function(d) { return d.y; })
+      .on('click', function(d) { console.log('Clicked: ' + d.name); });
 
-    var node2 = svgContainer.append('circle')
-      .style('stroke', 'gray')
-      .style('fill', 'white')
-      .attr('r', 40)
-      .attr('cx', 250)
-      .attr('cy', 250)
-      .on('mouseover', function(){d3.select(this).style('fill', 'aliceblue');})
-      .on('mouseout', function(){d3.select(this).style('fill', 'white');});
-
-    var line1To2 = svgContainer.append('line')
+    //Creating a line - hardcoded values for now.
+    svgContainer.append('line')
       .style('stroke', 'black')
       .style('stroke-width', '4px')
       .style('fill', 'black')
@@ -46,7 +48,7 @@ angular.module('graphilariousApp')
       .attr('y1', 50)
       .attr('x2', 250)
       .attr('y2', 250)
-      .on('click', function(){console.log('handle clicking on Edges.. coming soon!');});
+      .on('click', function(){ console.log('handle clicking on Edges.. coming soon!'); });
   };
 
   d3Sample();
