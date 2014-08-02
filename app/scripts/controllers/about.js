@@ -9,9 +9,7 @@
  */
 angular.module('graphilariousApp')
   .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.aboutText = 'Graphilarious is an experiment with output taken from a Graphs DB and ' +
+        'the JavaScript visuzlisation library D3';
+    $scope.aboutMeText = 'You can find me at http://github.com/josmas'; //TODO (jos) make this a link
   });
