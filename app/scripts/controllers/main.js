@@ -9,11 +9,6 @@
  */
 angular.module('graphilariousApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
   //TODO (jos) all the d3 code here has to be relocated somewhere else.
   var d3Sample = function (){
