@@ -10,7 +10,7 @@
 angular.module('graphilariousApp')
   .controller('HeaderCtrl', function ($scope, $location) {
 
-    $scope.isActive = function (viewLocation) { 
+    $scope.isActive = function (viewLocation) {
       return viewLocation === $location.path();
     };
 
