@@ -1,6 +1,9 @@
 # Graphilarious
 Visualisation app powered by d3 and Angular.js
 
+[![Build
+Status](https://travis-ci.org/josmas/graphilarious.svg?branch=dev)](https://travis-ci.org/josmas/graphilarious)
+
 ## Loads of TODOs
 Will add more info here, and also instructions on how to hook eveything up.
 
